@@ -1,0 +1,30 @@
+spring.cache.jcache.config: classpath:ehcache.xml
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      pattern: '%t [%A:%p] [%h] [%I] %l %u "%r" %s %b %D'
+      directory: /logs
+      prefix: cachingapp_access_log
+      suffix: .log
+  servlet:
+    context-path: ${CONTEXT_ROOT}
+  port: ${PORT}
+
+spring:
+  application:
+    name: cachingapp
+  profiles:
+    active: ${PROFILE}
+  resources:
+    chain:
+      enabled: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"

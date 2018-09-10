@@ -1,0 +1,59 @@
+version: '2'
+services:
+  terracotta:
+    container_name: terracotta
+    image: terracotta/terracotta-server-oss
+    expose:
+      - "9510"
+      - "9530"
+      - "9410"
+      - "9430"
+    networks:
+      cachedemo:
+        ipv4_address: 10.7.0.2
+
+  cachingapp1:
+    image: cachingapp
+    container_name: cachingapp1
+    ports:
+      - "11021:11021"
+    depends_on:
+      - terracotta
+    volumes:
+      - cachingdemo_cachingapp1:/logs
+    environment:
+      - PROFILE=development
+      - CONTEXT_ROOT=/cachingapp1
+      - PORT=11021
+    networks:
+      cachedemo:
+        ipv4_address: 10.7.0.3
+
+  cachingapp2:
+    image: cachingapp
+    container_name: cachingapp2
+    ports:
+      - "11022:11022"
+    depends_on:
+      - terracotta
+    volumes:
+      - cachingdemo_cachingapp2:/logs
+    environment:
+      - PROFILE=development
+      - CONTEXT_ROOT=/cachingapp2
+      - PORT=11022
+    networks:
+      cachedemo:
+        ipv4_address: 10.7.0.4
+
+volumes: 
+  cachingdemo_cachingapp1:
+  cachingdemo_cachingapp2:
+
+networks:
+  cachedemo:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.7.0.0/16
+         gateway: 10.7.0.1
