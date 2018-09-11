@@ -46,9 +46,51 @@ services:
       cachedemo:
         ipv4_address: 10.7.0.4
 
+  legacycacheapp1:
+    image: legacycacheapp
+    container_name: legacycacheapp1
+    expose:
+      - "11023"
+      - "40001"
+      - "40002"
+    ports:
+      - "11023:11023"
+    volumes:
+      - cachingdemo_legacycacheapp1:/logs
+    environment:
+      - PROFILE=development
+      - CONTEXT_ROOT=/legacycacheapp
+      - PORT=11023
+      - CONFIG_FILE=ehcache-legacycacheapp1.xml
+    networks:
+      cachedemo:
+        ipv4_address: 10.7.0.5
+
+  legacycacheapp2:
+    image: legacycacheapp
+    container_name: legacycacheapp2
+    expose:
+      - "11024"
+      - "40001"
+      - "40002"
+    ports:
+      - "11024:11024"
+    volumes:
+      - cachingdemo_legacycacheapp2:/logs
+    environment:
+      - PROFILE=development
+      - CONTEXT_ROOT=/legacycacheapp
+      - PORT=11024
+      - CONFIG_FILE=ehcache-legacycacheapp2.xml
+    networks:
+      cachedemo:
+        ipv4_address: 10.7.0.6
+
 volumes: 
   cachingdemo_cachingapp1:
   cachingdemo_cachingapp2:
+  cachingdemo_legacycacheapp1:
+  cachingdemo_legacycacheapp2:
 
 networks:
   cachedemo:

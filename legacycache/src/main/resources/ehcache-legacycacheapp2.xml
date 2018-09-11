@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd">
+
+	<cacheManagerPeerProviderFactory
+		class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+		properties="peerDiscovery=manual,
+ 					rmiUrls=//10.7.0.5:40001/books" />
+
+	<cacheManagerPeerListenerFactory
+		class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
+		properties="hostName=10.7.0.6, port=40001, socketTimeoutMillis=30000" />
+
+
+	<cache name="books" 
+		maxElementsInMemory="10"
+		eternal="true" 
+		timeToIdleSeconds="300" 
+		timeToLiveSeconds="300"
+        memoryStoreEvictionPolicy="LRU">
+		
+		<cacheEventListenerFactory
+			class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" 
+			                                   properties="replicateAsynchronously=true,
+                                               replicatePuts=true,
+                                               replicateUpdates=true,
+                                               replicateUpdatesViaCopy=true,
+                                               replicateRemovals=true"/>
+	</cache>
+
+</ehcache>
