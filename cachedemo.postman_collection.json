@@ -1,0 +1,204 @@
+{
+	"id": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+	"name": "cachedemo",
+	"description": "",
+	"order": [
+		"8b77f89e-5759-37db-9915-6c6503785d6c",
+		"d86b921e-3375-2982-52d0-95ff34e10d1a",
+		"679cc581-3771-e4b4-8ed4-136f62256180",
+		"7aa3121a-f0b1-9ae3-243d-be195a31ac5b",
+		"2e2fd215-88d9-d086-b368-2991b9e19ad9",
+		"7f4480a2-bd21-1d18-8727-7c7cd32898dd"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1536579142676,
+	"owner": "590573",
+	"public": false,
+	"requests": [
+		{
+			"id": "2e2fd215-88d9-d086-b368-2991b9e19ad9",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:11023/legacycacheapp/book?isbn=isbn-0002",
+			"queryParams": [
+				{
+					"key": "isbn",
+					"value": "isbn-0002",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1536641930799,
+			"name": "legacy read from cache from 1",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": []
+		},
+		{
+			"id": "679cc581-3771-e4b4-8ed4-136f62256180",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:11023/legacycacheapp/book",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1536597540274,
+			"name": "legacy add cache from 1",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": [],
+			"rawModeData": "{\n\t\"isbn\": \"isbn-0001\",\n\t\"title\": \"Origin\"\n}"
+		},
+		{
+			"id": "7aa3121a-f0b1-9ae3-243d-be195a31ac5b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:11024/legacycacheapp/book",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1536641917201,
+			"name": "legacy add cache from 2",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": [],
+			"rawModeData": "{\n\t\"isbn\": \"isbn-0002\",\n\t\"title\": \"Inferno\"\n}"
+		},
+		{
+			"id": "7f4480a2-bd21-1d18-8727-7c7cd32898dd",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:11024/legacycacheapp/book?isbn=isbn-0001",
+			"queryParams": [
+				{
+					"key": "isbn",
+					"value": "isbn-0001",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1536599225936,
+			"name": "legacy read from cache from 2",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": [],
+			"isFromCollection": true,
+			"collectionRequestId": "2e2fd215-88d9-d086-b368-2991b9e19ad9"
+		},
+		{
+			"id": "8b77f89e-5759-37db-9915-6c6503785d6c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:11021/cachingapp1/book",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"data": [],
+			"dataMode": "raw",
+			"name": "add to cache from 1",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1536579153174,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"isbn\": \"isbn-0001\",\n\t\"title\": \"Origin\"\n}"
+		},
+		{
+			"id": "d86b921e-3375-2982-52d0-95ff34e10d1a",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:11022/cachingapp2/book?isbn=isbn-0001",
+			"queryParams": [
+				{
+					"key": "isbn",
+					"value": "isbn-0001",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"data": null,
+			"dataMode": "params",
+			"name": "read from cache from 2",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1536579176957,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

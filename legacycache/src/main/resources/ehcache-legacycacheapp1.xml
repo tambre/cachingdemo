@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false">
-	
-<!-- 
-	updateCheck="false"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false" 
 	monitoring="autodetect" dynamicConfig="true">
- -->
+ 
 
 	<cacheManagerPeerProviderFactory
 		class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
@@ -19,19 +16,24 @@
 		properties="hostName=10.7.0.5, port=40001,socketTimeoutMillis=30000"/>
 
 	<cache name="books" 
-		maxElementsInMemory="10"
-		eternal="true" 
-		timeToIdleSeconds="300" 
-		timeToLiveSeconds="300"
+		maxElementsInMemory="100"
+		eternal="false" 
+		timeToIdleSeconds="120" 
+		timeToLiveSeconds="120"
+        maxElementsOnDisk="1000"
+		diskExpiryThreadIntervalSeconds="60"
         memoryStoreEvictionPolicy="LRU">
 		
+		<persistence strategy="none"/>
 		<cacheEventListenerFactory
 			class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" 
 			                                   properties="replicateAsynchronously=true,
                                                replicatePuts=true,
                                                replicateUpdates=true,
                                                replicateUpdatesViaCopy=true,
-                                               replicateRemovals=true"/>
+                                               replicateRemovals=true,
+                                               asynchronousReplicationIntervalMillis=1000,
+                                               asynchronousReplicationMaximumBatchSize=10"/>
 	</cache>
 
 </ehcache>
