@@ -29,7 +29,7 @@ public class LegacyCacheController
 		response = ResponseEntity.ok(book);
 		return response;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/book", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<Book> getBook(@RequestParam(name = "isbn", required = true) String isbn)
 	{
