@@ -8,7 +8,11 @@
 		"679cc581-3771-e4b4-8ed4-136f62256180",
 		"7aa3121a-f0b1-9ae3-243d-be195a31ac5b",
 		"2e2fd215-88d9-d086-b368-2991b9e19ad9",
-		"7f4480a2-bd21-1d18-8727-7c7cd32898dd"
+		"7f4480a2-bd21-1d18-8727-7c7cd32898dd",
+		"67a3fa63-4dff-491a-bb95-21762a925330",
+		"73aba8a7-2991-a5cb-d881-4b6262eeaaa2",
+		"9304d4df-6307-fa1e-9a91-41f7ce429c98",
+		"54b99244-c4fd-163c-118c-ee13bbc11baa"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -41,7 +45,37 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1536641930799,
-			"name": "legacy read from cache from 1",
+			"name": "legacy get book from 1",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": []
+		},
+		{
+			"id": "54b99244-c4fd-163c-118c-ee13bbc11baa",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:11024/legacycacheapp/author?id=0001",
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "0001",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537160270357,
+			"name": "legacy get author from 2",
 			"description": "",
 			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
 			"responses": []
@@ -69,12 +103,72 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1536597540274,
-			"name": "legacy add cache from 1",
+			"time": 1536642098785,
+			"name": "legacy add book from 1",
 			"description": "",
 			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
 			"responses": [],
-			"rawModeData": "{\n\t\"isbn\": \"isbn-0001\",\n\t\"title\": \"Origin\"\n}"
+			"rawModeData": "{\n\t\"isbn\": \"isbn-0001\",\n\t\"title\": \"Origins\"\n}"
+		},
+		{
+			"id": "67a3fa63-4dff-491a-bb95-21762a925330",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:11023/legacycacheapp/author",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537160388938,
+			"name": "legacy add author from 1",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": [],
+			"rawModeData": "{\n\t\"id\": \"0001\",\n\t\"name\": \"Dan Brown\"\n}"
+		},
+		{
+			"id": "73aba8a7-2991-a5cb-d881-4b6262eeaaa2",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:11024/legacycacheapp/author",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537160379695,
+			"name": "legacy add author from 2",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": [],
+			"rawModeData": "{\n\t\"id\": \"0002\",\n\t\"name\": \"Tom Clancy\"\n}"
 		},
 		{
 			"id": "7aa3121a-f0b1-9ae3-243d-be195a31ac5b",
@@ -100,7 +194,7 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1536641917201,
-			"name": "legacy add cache from 2",
+			"name": "legacy add book from 2",
 			"description": "",
 			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
 			"responses": [],
@@ -131,7 +225,7 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1536599225936,
-			"name": "legacy read from cache from 2",
+			"name": "legacy get book from 2",
 			"description": "",
 			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
 			"responses": [],
@@ -168,6 +262,36 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"rawModeData": "{\n\t\"isbn\": \"isbn-0001\",\n\t\"title\": \"Origin\"\n}"
+		},
+		{
+			"id": "9304d4df-6307-fa1e-9a91-41f7ce429c98",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:11023/legacycacheapp/author?id=0002",
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "0002",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537160243223,
+			"name": "legacy get author from 1",
+			"description": "",
+			"collectionId": "f58fa945-71b4-ea64-181f-e9c0385d131b",
+			"responses": []
 		},
 		{
 			"id": "d86b921e-3375-2982-52d0-95ff34e10d1a",
