@@ -37,8 +37,8 @@ public class BookRepository
 		props.put("replicateUpdates", "true");
 		props.put("replicateUpdatesViaCopy", "true");
 		props.put("replicateRemovals", "true");
-		props.put("asynchronousReplicationIntervalMillis", "true");
-		props.put("asynchronousReplicationMaximumBatchSize", "true");
+		props.put("asynchronousReplicationIntervalMillis", "1000");
+		props.put("asynchronousReplicationMaximumBatchSize", "1000");
 
 		RMICacheReplicatorFactory factory = new RMICacheReplicatorFactory();
 		CacheEventListener cel = factory.createCacheEventListener(props);
