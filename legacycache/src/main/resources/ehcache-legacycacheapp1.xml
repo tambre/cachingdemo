@@ -8,7 +8,7 @@
 	<cacheManagerPeerProviderFactory
 		class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
 		properties="peerDiscovery=manual,
- 					rmiUrls=//10.7.0.6:40001/books" />
+ 					rmiUrls=//10.7.0.6:40001/books|//10.7.0.6:40001/authors" />
 
 
 	<cacheManagerPeerListenerFactory

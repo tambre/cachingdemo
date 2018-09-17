@@ -20,10 +20,13 @@ public class LegacyCacheController
 	@Autowired
 	BookRepository br;
 
+	@Autowired
+	AuthorRepository ar;
+
 	@RequestMapping(method = RequestMethod.POST, value = "/book", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<Book> createBook(@RequestBody(required = true) Book book)
 	{
-		logger.debug("to insert: {}", book);
+		logger.debug("book to insert: {}", book);
 		ResponseEntity<Book> response;
 		book = br.insert(book);
 		response = ResponseEntity.ok(book);
@@ -39,4 +42,24 @@ public class LegacyCacheController
 		response = ResponseEntity.ok(book);
 		return response;
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/author", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<Author> createAuthor(@RequestBody(required = true) Author author)
+	{
+		logger.debug("author to insert: {}", author);
+		ResponseEntity<Author> response;
+		author = ar.insert(author);
+		response = ResponseEntity.ok(author);
+		return response;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/author", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<Author> getAuthor(@RequestParam(name = "id", required = true) String id)
+	{
+		logger.debug("author with isbn to fetch: {}", id);
+		ResponseEntity<Author> response;
+		Author author = ar.getAuthor(id);
+		response = ResponseEntity.ok(author);
+		return response;
+	}	
 }

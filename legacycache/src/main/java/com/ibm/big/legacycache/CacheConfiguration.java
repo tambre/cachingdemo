@@ -69,4 +69,34 @@ public class CacheConfiguration
 		cm.addCache(books);
 		return books;
 	}
+	
+	@Bean(name = "authors")
+	public Cache authors(CacheManager cm)
+	{
+		logger.debug("********** authors method called to instantiate cache ***********");
+
+		Properties props = new Properties();
+		props.put("replicateAsynchronously", "true");
+		props.put("replicatePuts", "true");
+		props.put("replicateUpdates", "true");
+		props.put("replicateUpdatesViaCopy", "true");
+		props.put("replicateRemovals", "true");
+		props.put("asynchronousReplicationIntervalMillis", "true");
+		props.put("asynchronousReplicationMaximumBatchSize", "true");
+
+		RMICacheReplicatorFactory factory = new RMICacheReplicatorFactory();
+		CacheEventListener cel = factory.createCacheEventListener(props);
+
+		net.sf.ehcache.config.CacheConfiguration cc = new net.sf.ehcache.config.CacheConfiguration("authors", 100)
+				.eternal(false).timeToIdleSeconds(120).timeToLiveSeconds(120).maxElementsOnDisk(1000)
+				.diskExpiryThreadIntervalSeconds(60).memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
+				.persistence(new PersistenceConfiguration().strategy(Strategy.NONE));
+
+		Cache authors = new Cache(cc);
+		authors.getCacheEventNotificationService().registerListener(cel);
+
+		cm.addCache(authors);
+		return authors;
+		
+	}
 }
